@@ -1,0 +1,10 @@
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\bin\Debug\OOP_laba4_2.exe.config
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\bin\Debug\OOP_laba4_2.exe
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\bin\Debug\OOP_laba4_2.pdb
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\obj\Debug\OOP_laba4_2.csprojAssemblyReference.cache
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\obj\Debug\OOP_laba4_2.Form1.resources
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\obj\Debug\OOP_laba4_2.Properties.Resources.resources
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\obj\Debug\OOP_laba4_2.csproj.GenerateResource.cache
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\obj\Debug\OOP_laba4_2.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\obj\Debug\OOP_laba4_2.exe
+C:\Users\user\Desktop\oop\OOP_laba4_2\OOP_laba4_2\obj\Debug\OOP_laba4_2.pdb
