@@ -115,11 +115,9 @@ namespace OOP_laba4_2
         
         public void setValue(int value_1)
         {
-            if (value_1 % 2 == 1)
-                this.value_1 = value_1 + 1;
-            else
+            if ((value_1 >= 0) & (value_1 <= 100))
                 this.value_1 = value_1;
-
+            
             observers1.Invoke(this, null);            
         }
         public int getValue()
@@ -130,16 +128,14 @@ namespace OOP_laba4_2
 
     public class ModelB
     {
-        private int value_2;        
+        private int value_2;       
         public System.EventHandler observers2;
 
         public void setValue(int value_2)
         {
-            if (value_2 % 2 == 1)
-                this.value_2 = value_2 + 1;
-            else
+            if ((value_2 > value_1) && (value_2 < value_3))
                 this.value_2 = value_2;
-
+            
             observers2.Invoke(this, null);
         }
         public int getValue()
@@ -155,11 +151,9 @@ namespace OOP_laba4_2
 
         public void setValue(int value_3)
         {
-            if (value_3 % 2 == 1)
-                this.value_3 = value_3 + 1;
-            else
+            if ((value_3 >= 0) & (value_3 <= 100))
                 this.value_3 = value_3;
-
+            
             observers3.Invoke(this, null);
         }
         public int getValue()
