@@ -65,7 +65,7 @@
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.numericUpDown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown1_KeyDown);
             // 
             // textBox1
             // 
@@ -83,6 +83,7 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(120, 28);
             this.progressBar1.TabIndex = 2;
+            this.progressBar1.Value = 10;
             // 
             // label1
             // 
@@ -110,6 +111,7 @@
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(120, 28);
             this.progressBar2.TabIndex = 5;
+            this.progressBar2.Value = 50;
             // 
             // textBox3
             // 
@@ -127,6 +129,7 @@
             this.progressBar3.Name = "progressBar3";
             this.progressBar3.Size = new System.Drawing.Size(120, 28);
             this.progressBar3.TabIndex = 7;
+            this.progressBar3.Value = 90;
             // 
             // numericUpDown2
             // 
@@ -140,7 +143,7 @@
             0,
             0,
             0});
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.numericUpDown2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown2_KeyDown);
             // 
             // numericUpDown3
             // 
@@ -154,7 +157,7 @@
             0,
             0,
             0});
-            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            this.numericUpDown3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown3_KeyDown);
             // 
             // label2
             // 

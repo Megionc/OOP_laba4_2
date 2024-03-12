@@ -12,37 +12,56 @@ namespace OOP_laba4_2
 {
     public partial class Form1 : Form
     {
-        Model model;
+        Model model;//модель
         
         public Form1()
         {
             InitializeComponent();
 
-            model = new Model();
-            
+            model = new Model();//создаем модель
+
+            //подписываемся на обновление модели
             model.observers1 += new System.EventHandler(this.UpdateFromModel1);
             model.observers2 += new System.EventHandler(this.UpdateFromModel2);
             model.observers3 += new System.EventHandler(this.UpdateFromModel3);
 
-            trackBar1.Scroll += trackBar1_Scroll;
-            trackBar2.Scroll += trackBar2_Scroll;
-            trackBar3.Scroll += trackBar3_Scroll;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            model.setValue_1(Decimal.ToInt32(trackBar1.Value));
+            model.setValue_1(Decimal.ToInt32(trackBar1.Value));//переплавляем значение в модель
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        
+        private void numericUpDown1_KeyDown(object sender, KeyEventArgs e)
         {
-            model.setValue_1(Decimal.ToInt32(numericUpDown1.Value));
-        }     
+            
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (numericUpDown1.Text == "")
+                {
+                    model.setValue_1(10);
+                }
+                else
+                {
+                    model.setValue_1(Int32.Parse(numericUpDown1.Text));
+                }
+            }
+        }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                model.setValue_1(Int32.Parse(textBox1.Text));
+            {               
+                if (textBox1.Text == "")
+                {
+                    model.setValue_1(10);
+                }
+                else
+                {
+                    model.setValue_1(Int32.Parse(textBox1.Text));
+                }
+            }                            
         }
 
         private void trackBar2_Scroll(object sender, EventArgs e)
@@ -53,12 +72,31 @@ namespace OOP_laba4_2
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                model.setValue_2(Int32.Parse(textBox2.Text));
+            {
+                if (textBox2.Text == "")
+                {
+                    model.setValue_2(50);
+                }
+                else
+                {
+                    model.setValue_2(Int32.Parse(textBox2.Text));
+                }
+            }
         }
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        private void numericUpDown2_KeyDown(object sender, KeyEventArgs e)
         {
-            model.setValue_2(Decimal.ToInt32(numericUpDown2.Value));
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (numericUpDown2.Text == "")
+                {
+                    model.setValue_2(50);
+                }
+                else
+                {
+                    model.setValue_2(Int32.Parse(numericUpDown2.Text));
+                }
+            }
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
@@ -69,12 +107,31 @@ namespace OOP_laba4_2
         private void textBox3_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                model.setValue_3(Int32.Parse(textBox3.Text));
+            {
+                if (textBox3.Text == "")
+                {
+                    model.setValue_3(90);
+                }
+                else
+                {
+                    model.setValue_3(Int32.Parse(textBox3.Text));
+                }
+            }
         }
 
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        private void numericUpDown3_KeyDown(object sender, KeyEventArgs e)
         {
-            model.setValue_3(Decimal.ToInt32(numericUpDown3.Value));
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (numericUpDown3.Text == "")
+                {
+                    model.setValue_3(90);
+                }
+                else
+                {
+                    model.setValue_3(Int32.Parse(numericUpDown3.Text));
+                }
+            }
         }
 
         private void UpdateFromModel1(object sender, EventArgs e)
@@ -99,9 +156,7 @@ namespace OOP_laba4_2
             numericUpDown3.Value = model.getValue_3();
             progressBar3.Value = model.getValue_3();
             trackBar3.Value = Decimal.ToInt32(model.getValue_3());
-        }
-
-        
+        }           
     }
 
 
@@ -115,13 +170,9 @@ namespace OOP_laba4_2
 
         public void setValue_1(int value_1)
         {
-            if (value_1 >= 0 && value_1 < value_2)
+            if (value_1 >= 0 && value_1 <= 100)
                 this.value_1 = value_1;
-            else if (value_1 >= value_2)
-                this.value_1 = value_1 - 1;
-            else if (value_1 < 0)
-                this.value_1 = 0;
-
+            
             observers1.Invoke(this, null);            
         }
         public int getValue_1()
@@ -149,14 +200,9 @@ namespace OOP_laba4_2
 
         public void setValue_3(int value_3)
         {
-
-            if (value_3 > value_2 && value_3 <= 100)
+            if (value_3 >= 0 && value_3 <= 100)
                 this.value_3 = value_3;
-            else if (value_3 <= value_2)
-                this.value_3 = value_3 + 1;
-            else if (value_3 > 100)
-                this.value_3 = 100;
-
+            
             observers3.Invoke(this, null);
         }
         public int getValue_3()
