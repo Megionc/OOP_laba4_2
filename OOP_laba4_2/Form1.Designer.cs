@@ -66,6 +66,7 @@
             0,
             0});
             this.numericUpDown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown1_KeyDown);
+            this.numericUpDown1.Leave += new System.EventHandler(this.numericUpDown1_Leave);
             // 
             // textBox1
             // 
@@ -76,6 +77,7 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "10";
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // progressBar1
             // 
@@ -104,6 +106,7 @@
             this.textBox2.TabIndex = 4;
             this.textBox2.Text = "50";
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
+            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // progressBar2
             // 
@@ -122,6 +125,7 @@
             this.textBox3.TabIndex = 6;
             this.textBox3.Text = "90";
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
+            this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
             // 
             // progressBar3
             // 
@@ -144,6 +148,7 @@
             0,
             0});
             this.numericUpDown2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown2_KeyDown);
+            this.numericUpDown2.Leave += new System.EventHandler(this.numericUpDown2_Leave);
             // 
             // numericUpDown3
             // 
@@ -158,6 +163,7 @@
             0,
             0});
             this.numericUpDown3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown3_KeyDown);
+            this.numericUpDown3.Leave += new System.EventHandler(this.numericUpDown3_Leave);
             // 
             // label2
             // 

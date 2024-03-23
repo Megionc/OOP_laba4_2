@@ -24,7 +24,6 @@ namespace OOP_laba4_2
             model.observers1 += new System.EventHandler(this.UpdateFromModel1);
             model.observers2 += new System.EventHandler(this.UpdateFromModel2);
             model.observers3 += new System.EventHandler(this.UpdateFromModel3);
-
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -49,6 +48,18 @@ namespace OOP_laba4_2
             }
         }
 
+        private void numericUpDown1_Leave(object sender, EventArgs e)
+        {
+            if (numericUpDown1.Text == "")
+            {
+                model.setValue_1(10);
+            }
+            else
+            {
+                model.setValue_1(Int32.Parse(numericUpDown1.Text));
+            }
+        }
+
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -61,8 +72,10 @@ namespace OOP_laba4_2
                 {
                     model.setValue_1(Int32.Parse(textBox1.Text));
                 }
-            }                            
+            }
         }
+
+        
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
@@ -84,6 +97,8 @@ namespace OOP_laba4_2
             }
         }
 
+        
+
         private void numericUpDown2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -96,6 +111,18 @@ namespace OOP_laba4_2
                 {
                     model.setValue_2(Int32.Parse(numericUpDown2.Text));
                 }
+            }
+        }
+
+        private void numericUpDown2_Leave(object sender, EventArgs e)
+        {
+            if (numericUpDown2.Text == "")
+            {
+                model.setValue_2(50);
+            }
+            else
+            {
+                model.setValue_2(Int32.Parse(numericUpDown2.Text));
             }
         }
 
@@ -118,6 +145,7 @@ namespace OOP_laba4_2
                 }
             }
         }
+       
 
         private void numericUpDown3_KeyDown(object sender, KeyEventArgs e)
         {
@@ -131,6 +159,18 @@ namespace OOP_laba4_2
                 {
                     model.setValue_3(Int32.Parse(numericUpDown3.Text));
                 }
+            }
+        }
+
+        private void numericUpDown3_Leave(object sender, EventArgs e)
+        {
+            if (numericUpDown3.Text == "")
+            {
+                model.setValue_3(90);
+            }
+            else
+            {
+                model.setValue_3(Int32.Parse(numericUpDown3.Text));
             }
         }
 
@@ -156,7 +196,43 @@ namespace OOP_laba4_2
             numericUpDown3.Value = model.getValue_3();
             progressBar3.Value = model.getValue_3();
             trackBar3.Value = Decimal.ToInt32(model.getValue_3());
-        }           
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                model.setValue_1(10);
+            }
+            else
+            {
+                model.setValue_1(Int32.Parse(textBox1.Text));
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                model.setValue_2(50);
+            }
+            else
+            {
+                model.setValue_2(Int32.Parse(textBox2.Text));
+            }
+        }
+
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                model.setValue_3(90);
+            }
+            else
+            {
+                model.setValue_3(Int32.Parse(textBox3.Text));
+            }
+        }
     }
 
 
@@ -171,40 +247,71 @@ namespace OOP_laba4_2
         public void setValue_1(int value_1)
         {
             if (value_1 >= 0 && value_1 <= 100)
-                this.value_1 = value_1;
+            {
+                this.value_1 = value_1;                
+                if (this.value_1 >= this.value_2)
+                {
+                    this.value_2 = this.value_1;                    
+                    if (this.value_1 >= this.value_3)
+                    {
+                        this.value_3 = this.value_1;                        
+                    }
+                }
+            }
             
-            observers1.Invoke(this, null);            
+            if (value_1 >= 0 && value_1 <= 100)
+            {
+                observers1.Invoke(this, null);
+                observers2.Invoke(this, null);
+                observers3.Invoke(this, null);
+            }
+            
         }
+
         public int getValue_1()
         {
             return value_1;
-        }    
+        }
         
 
         public void setValue_2(int value_2)
-        {
-            if (value_2 > value_1 && value_2 < value_3)
+        {            
+            if (value_2 >= value_1 && value_2 <= value_3)
+            {
                 this.value_2 = value_2;
-            else if (value_2 <= value_1)
-                this.value_2 = value_2 + 1;
-            else if (value_2 >= value_3)
-                this.value_2 = value_2 - 1;
-
+            }
             observers2.Invoke(this, null);
         }
+
         public int getValue_2()
         {
             return value_2;
-        }     
+        }
 
 
         public void setValue_3(int value_3)
         {
             if (value_3 >= 0 && value_3 <= 100)
-                this.value_3 = value_3;
-            
-            observers3.Invoke(this, null);
+            {
+                this.value_3 = value_3;                
+                if (this.value_3 <= this.value_2)
+                {
+                    this.value_2 = this.value_3;                    
+                    if (this.value_3 <= this.value_1)
+                    {
+                        this.value_1 = this.value_3;                        
+                    }
+                }
+            }
+
+            if (value_3 >= 0 && value_3 <= 100)
+            {
+                observers1.Invoke(this, null);
+                observers2.Invoke(this, null);
+                observers3.Invoke(this, null);
+            }
         }
+
         public int getValue_3()
         {
             return value_3;
